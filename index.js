@@ -34,8 +34,8 @@ async function updateGroupName() {
         }
 
         const stream = await twitchClient.helix.streams.getStreamByUserId(user.id);
-        const status = stream ? 'VABE SLOTS | LIVE ON ✅' : 'VABE SLOTS | LIVE OFF ❌';
-        const newGroupName = status;
+        const status = stream ? 'LIVE ON ✅' : 'LIVE OFF ❌';
+        const newGroupName = `VABE SLOTS | ${status}`;
 
         const chat = await client.getChatById(groupId);
         await chat.setSubject(newGroupName);
